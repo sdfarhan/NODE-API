@@ -61,7 +61,7 @@ router.post('/register', (req,res) => {
                             html: 
                                 `
                                 <h1>Confirm Your Registration</h1>
-                                <p>To verify your account <a href="https://enigmatic-savannah-38254.herokuapp.com/users/verify?token=${user.vtoken}">click here</a></p>
+                                <p>To verify your account <a href="https://feedback-sbs.herokuapp.com/users/verify?token=${user.vtoken}">click here</a></p>
                                 <br>
                                 <p>This is auto-generated mail do not reply to this!!
                                     in case yo have any queries you can contact us on <b>sabir.shaik.789@gmail.com</b><p>
