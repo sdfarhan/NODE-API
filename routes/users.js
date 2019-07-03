@@ -61,7 +61,7 @@ router.post('/register', (req,res) => {
                             html: 
                                 `
                                 <h1>Confirm Your Registration</h1>
-                                <p>To verify your account <a href="http://192.168.0.5:3000/users/verify?token=${user.vtoken}">click here</a></p>
+                                <p>To verify your account <a href="https://enigmatic-savannah-38254.herokuapp.com/users/verify?token=${user.vtoken}">click here</a></p>
                                 <br>
                                 <p>This is auto-generated mail do not reply to this!!
                                     in case yo have any queries you can contact us on <b>sabir.shaik.789@gmail.com</b><p>
@@ -280,7 +280,9 @@ router.get('/getquestions',passport.authenticate('jwt',{session:false}),(req,res
     Ques_opts.getQuestions(token.company_name,(err,ques_opts) => {
         if(err)
             errors.err500(err,res);
-        else if(ques_opts){
+        if(!ques_opts)
+            res.json({success: true, user: token.name, ques_opts: ques_opts});        
+        else{
             console.log("questions fetched"+ques_opts);
             res.json({success: true, user: token.name, ques_opts: ques_opts});
         }

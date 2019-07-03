@@ -9,9 +9,9 @@ const config = require('./config/database');
 const emp = require('./routes/emp');
 const mail = require('./misc/email'); 
 //conect to database
-mongoose.connect(config.database,{ useNewUrlParser: true} );
+mongoose.connect(config.mongoUri,{useNewUrlParser: true,dbName: "Feedback_app"} );
 mongoose.connection.on('connected',() => {
-    console.log('connected to database:' + config.database);
+    console.log('connected to database:' + config.mongoUri);
 });
 
 mongoose.connection.on('error',(err) => {
