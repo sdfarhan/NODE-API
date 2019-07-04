@@ -19,7 +19,7 @@ const feedback_schema = mongoose.Schema({
             response:[
                 {
                     _id: false,
-                    ques_no: String,
+                    ques: String,
                     opt: String
                 }
             ]
