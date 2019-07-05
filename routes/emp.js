@@ -66,6 +66,7 @@ router.post('/recordresponse',passport.authenticate('jwt',{session: false}), (re
     });
     feedback = req.body;
     feedback.emp_id = token.emp_id;
+    console.log(feedback);
     Feedback.recordResponse(token.company_name,feedback,(err,info) => {
         if(err)
             errors.err500(err,res);
